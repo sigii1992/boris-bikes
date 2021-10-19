@@ -1,4 +1,4 @@
-require 'bike'
+require_relative 'bike'
 
 describe Bike do
   it 'checks if bike works' do
