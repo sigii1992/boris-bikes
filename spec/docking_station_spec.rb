@@ -11,4 +11,12 @@ describe DockingStation do
     bike = subject.release_bike
     expect(bike).to be_working
   end
+
+  it { is_expected.to respond_to(:dock_bike).with(1).argument }
+  
+  it 'pass a docked bike to the bikes array' do
+    docking_station = subject
+    docking_station.dock_bike("bike1")
+    expect(docking_station.bikes).to include("bike1")
+  end
 end
