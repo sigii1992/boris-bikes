@@ -25,8 +25,8 @@ describe DockingStation do
     expect(docking_station.bikes).to include("bike1")
   end
 
-  it 'can not dock a bike if there is more 20' do
-    20.times { subject.dock_bike Bike.new }
+  it 'can not dock a bike if there is more that capacity' do
+    DockingStation::DEFAULT_CAPACITY.times { subject.dock_bike Bike.new }
     expect { subject.dock_bike(Bike.new) }.to raise_error 'Docking station is full'
   end
 end
